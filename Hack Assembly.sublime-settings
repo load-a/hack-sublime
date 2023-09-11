@@ -1,0 +1,7 @@
+// These settings override both User and Default settings for the Hack Assembly syntax
+{
+	"color_scheme": "Hack Color.sublime-color-scheme",
+	"auto_complete": false,
+	"tab_completion": false,
+	"tab_size": 2,
+}

@@ -1,0 +1,38 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+Name: Hack Assembly Code Syntax
+scope: source.asm
+file_extensions: [asm]
+contexts:
+  main:
+    #Comments
+    - match: '(//)[^*].+'
+      scope: comment.line
+    - match: '(//*).+'
+      scope: comment.doc
+    #A-instructions
+    # - Numbers
+    - match: '[@]\d+'                                                 #Decimal number
+      scope: instruction.a constant.number.decimal
+    # - Reserved Labels
+    - match: '@R[0-9]+'                                               #Register
+      scope: instruction.a symbol.reserve.register
+    - match: '@((SP)|(LCL)|(ARG)|(THIS)|(THAT))'                      #Other
+      scope: instruction.a symbol.reserve.word
+    - match: '@((SCREEN)|(KBD))'                                      #I/O
+      scope: instruction.a symbol.reserve.io
+    # - User Labels
+    - match: \(([A-Z]|\.|_|\$|:)([A-Za-z]|\.|_|\$|:|[0-9])+\)         #Label declaration
+      scope: instruction.a symbol.user.label.declaration
+    - match: '@([A-Z]|\.|_|\$|:)([A-Za-z]|\.|_|\$|:|[0-9])+'          #Label call
+      scope: instruction.a symbol.user.label.call
+    - match: '@([a-z]|\.|_|\$|:)([A-Za-z]|\.|_|\$|:|[0-9])+'          #Variable
+      scope: instruction.a symbol.user.label.variable
+    #C-instructions
+    - match: \b(D|A|M)(D|A|M)?(D|A|M)?                                #Destination
+      scope: instruction.c symbol.operation.destination
+    - match: '= *?(-|!)?(D|A|M|[0-9])(&|\||!|\+|-)?(D|A|M|[0-9])?'    #Computation
+      scope: instruction.c symbol.operation.computation
+    - match: '0?;J((MP)|(EQ)|(GT)|(LT)|(GE)|(LE)|(NE))'               #Jump
+      scope: instruction.c symbol.reserve.jump

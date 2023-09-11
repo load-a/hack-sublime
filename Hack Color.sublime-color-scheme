@@ -1,0 +1,131 @@
+{   //Color Remapping for the Hack Assembly Language
+    //Meant to go with the accompanying syntax
+    //
+    //This is based on the Monokai Color Scheme by "Sublime HQ Pty Ltd, Wimer Hazenberg"
+    //I mostly used the original as a framework, and intend to fully convert the colors in the future 
+    //(once I learn what the rest of the globals mean ;-;)
+    "name": "Hack",
+    "author": "LDA",
+    "variables":
+    {
+        "blackH": "hsl(60, 17%, 11%)",
+        "whiteH": "hsl(140, 10%, 94%)",
+        "whiteH2": "hsl(240, 100%, 98%)",
+        "greyH": "hsl(211, 12%, 49%)",
+        "greyH2": "hsl(269, 9%, 45%)",
+        "pinkH": "hsl(20, 82%, 77%)",
+        "redH": "hsl(1, 75%, 64%)",
+        "redH2": "hsl(346, 91%, 65%)",
+        "redH3": "hsl(337, 67%, 43%)",
+        "yellowH": "hsl(45, 77%, 79%)",
+        "greenH": "hsl(162, 43%, 46%)",
+        "greenH2": "hsl(172, 80%, 59%)",
+        "blueH": "hsl(227, 100%, 80%)",
+        "blueH2": "hsl(226, 91%, 62%)",
+        "purpleH": "hsl(302, 48%, 52%)",
+        //Original Pallet
+        "black": "hsl(0, 0%, 0%)",
+        "black3": "hsl(70, 8%, 15%)",
+        "blue": "hsl(190, 81%, 67%)",
+        "grey": "hsla(55, 8%, 31%, 0.7)",
+        "orange": "hsl(32, 98%, 56%)",
+        "orange2": "hsl(30, 83%, 34%)",
+        "orange3": "hsl(47, 100%, 79%)",
+        "purple": "hsl(261, 100%, 75%)",
+        "red": "hsl(0, 93%, 59%)",
+        "red2": "hsl(338, 95%, 56%)",
+        "white": "hsl(0, 0%, 97%)",
+        "white2": "hsl(60, 36%, 96%)",
+        "white3": "hsl(60, 30%, 96%)",
+        "yellow": "hsl(54, 70%, 68%)",
+        "yellow2": "hsl(80, 76%, 53%)",
+        "yellow3": "hsl(60, 12%, 79%)",
+        "yellow4": "hsl(55, 11%, 22%)",
+        "yellow5": "hsl(50, 11%, 41%)"
+    },
+    "globals":
+    {
+        "foreground": "var(whiteH2)",
+        "background": "var(blackH)",
+        "caret": "color(var(whiteH) alpha(0.9))",
+        "block_caret": "color(var(whiteH) alpha(0.2))",
+        "block_caret_border": "color(var(whiteH) alpha(0.8))",
+        "invisibles": "color(var(whiteH2) alpha(0.35))",
+        "line_highlight": "var(yellow4)",
+        "selection": "var(grey)",
+        "selection_border": "var(black2)",
+        "misspelling": "var(red2)",
+        "active_guide": "color(var(orange2) alpha(0.69))",
+        "find_highlight_foreground": "var(black)",
+        "find_highlight": "var(orange3)",
+        "brackets_options": "underline",
+        "brackets_foreground": "color(var(white3) alpha(0.65))",
+        "bracket_contents_options": "underline",
+        "bracket_contents_foreground": "color(var(white3) alpha(0.65))",
+        "tags_options": "stippled_underline",
+    },
+    "rules":
+    [   
+        //Defaults
+        {
+            "name": "Line Comment",
+            "scope": "comment.line",
+            "foreground": "var(greyH2)",
+        },
+        {
+            "name": "Doc Comment",
+            "scope": "comment.doc",
+            "foreground": "var(greyH)",
+        },
+        {
+            "name": "Instruction",
+            "scope": "instruction",
+            "foreground": "var(whiteH)",
+        },
+        //A
+        {
+            "name": "A-instruction",
+            "scope": "instruction.a",
+            "foreground": "var(yellowH)",
+        },        
+        {
+            "name": "Label",
+            "scope": "instruction.a symbol.user.label.declaration",
+            "foreground": "var(whiteH)",
+            "font_style": "bold"
+        },        
+        {
+            "name": "Call",
+            "scope": "instruction.a symbol.user.label.call",
+            "foreground": "var(whiteH2)",
+            "font_style": "italic"
+        },     
+        {
+            "name": "Reserved",
+            "scope": "instruction.a symbol.reserve",
+            "foreground": "var(redH)",
+        },
+        //C   
+        {
+            "name": "C-instruction",
+            "scope": "instruction.c",
+            "foreground": "var(greenH)",
+        },
+        {
+            "name": "Destination",
+            "scope": "instruction.c symbol.operation.destination",
+            "foreground": "var(greenH2)",
+        },
+        {
+            "name": "Jump",
+            "scope": "instruction.c symbol.reserve.jump",
+            "foreground": "var(redH2)",
+        },
+        //Number
+        {
+            "name": "Number",
+            "scope": "instruction.a constant.number",
+            "foreground": "var(blueH)",
+        },
+    ]
+}
